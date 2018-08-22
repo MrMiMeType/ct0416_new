@@ -1,5 +1,6 @@
 package com.atguigu.utils;
 
+import com.atguigu.comprocess.CalleeComprocess;
 import com.atguigu.constant.Constant;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
@@ -56,6 +57,9 @@ public class HBaseUtil {
         //创建表描述器
         HTableDescriptor hTableDescriptor = new HTableDescriptor(TableName.valueOf(table));
 
+        //添加协处理器
+        hTableDescriptor.addCoprocessor("com.atguigu.comprocess.CalleeComprocess");
+
         //创建列描述器
         for (String cf : cfs) {
             HColumnDescriptor hColumnDescriptor = new HColumnDescriptor(cf);
@@ -105,10 +109,9 @@ public class HBaseUtil {
     }
 
     //rowkey设计
-    public static String getRowKey(String partitionID, String caller, String buildTime, String callee, String flag, String duration) {
+    public static String getRowKey(String partitionID, String call1, String buildTime, String call2, String flag, String duration) {
 
-        return partitionID + "_" + caller + "_" + buildTime + "_" + callee + "_" + flag + "_" + duration;
-
+        return partitionID + "_" + call1 + "_" + buildTime + "_" + call2 + "_" + flag + "_" + duration;
     }
 
 }
