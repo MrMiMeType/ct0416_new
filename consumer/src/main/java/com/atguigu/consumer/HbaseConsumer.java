@@ -1,4 +1,4 @@
-package com.atguigu.hbaseconsumer;
+package com.atguigu.consumer;
 
 import com.atguigu.utils.PropertiesUtil;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

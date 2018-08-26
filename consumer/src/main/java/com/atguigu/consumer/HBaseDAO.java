@@ -1,4 +1,4 @@
-package com.atguigu.hbaseconsumer;
+package com.atguigu.consumer;
 
 import com.atguigu.constant.Constant;
 import com.atguigu.utils.HBaseUtil;
